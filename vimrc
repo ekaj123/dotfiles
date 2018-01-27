@@ -16,6 +16,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Fuzzy finder vim
 Plug 'junegunn/fzf.vim'
 
+" HTML5 syntax highlighting
+Plug 'othree/html5.vim'
+
+" Vue syntax highlighting
+Plug 'posva/vim-vue'
 
 " Initialize plugin system
 call plug#end()
