@@ -20,15 +20,20 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +q +q!
 
-# install tmux-resurrect
-git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/.tmux-resurrect
-run-shell $HOME/.tmux-resurrect/resurrect.tmux
-
-# VIM
-ln -sf $DOTFILES/vimrc $HOME/.vimrc
+# Need to fix: Install tmux via script below
+# git clone https://github.com/tmux/tmux.git $HOME/.tmux
+# sh $HOME/.tmux/autogen.sh
+# .$HOME/.tmux/configure && make
 
 # TMUX
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
+
+# install tmux-resurrect
+git clone https://github.com/tmux-plugins/tmux-resurrect $HOME/.tmux-resurrect
+tmux source-file ~/.tmux.conf
+
+# VIM
+ln -sf $DOTFILES/vimrc $HOME/.vimrc
 
 # ALIASES
 ln -sf $DOTFILES/bash_aliases $HOME/.bash_aliases
