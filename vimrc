@@ -1,5 +1,7 @@
 syntax on
 
+" Display line number
+set number
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
