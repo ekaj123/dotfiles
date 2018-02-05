@@ -1,5 +1,4 @@
 syntax on
-colorscheme monokai
 
 " Display line number
 set number
@@ -22,9 +21,6 @@ Plug 'othree/html5.vim'
 
 " Vue syntax highlighting
 Plug 'posva/vim-vue'
-
-" Color Scheme
-Plug 'crusoexia/vim-monokai'
 
 " Initialize plugin system
 call plug#end()
