@@ -38,7 +38,12 @@ colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='medium'
 
-let g:airline_theme='base16'
+
+" AirLine Configuration
+let g:airline_theme='minimalist'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#tabs_label = 't'
+
 
 "FZF
 set rtp+=~/.fzf
