@@ -1,8 +1,3 @@
-syntax on
-
-" Display line number
-set number
-
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -22,8 +17,28 @@ Plug 'othree/html5.vim'
 " Vue syntax highlighting
 Plug 'posva/vim-vue'
 
+" colorscheme
+Plug 'morhetz/gruvbox'
+
+" Airline Theme
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes' 
+
 " Initialize plugin system
 call plug#end()
 
-set rtp+=~/.fzf
+syntax on
 
+" Display line number
+set number
+
+
+" GRUVBOX
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark='medium'
+
+let g:airline_theme='base16'
+
+"FZF
+set rtp+=~/.fzf
