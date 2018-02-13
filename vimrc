@@ -23,6 +23,8 @@ Plug 'morhetz/gruvbox'
 " Airline Theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
+" Pluggin for displaying the git branch of vim-airline
+Plug 'tpope/vim-fugitive'
 
 " Initialize plugin system
 call plug#end()
@@ -41,7 +43,17 @@ let g:gruvbox_contrast_dark='medium'
 
 " AirLine Configuration
 let g:airline_theme='minimalist'
-"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#branch#enabled=1
+"let g:airline_powerline_fonts = 1
+
+"if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+"endif
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_left_sep = '»'
+"let g:airline#extensions#tabline#left_alt_sep='>'
+"let g:airline#extensions#tabline#enabled=1
 "let g:airline#extensions#tabline#tabs_label = 't'
 
 
