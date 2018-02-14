@@ -84,9 +84,11 @@ Esc                 exit insert mode
 r                   replace a single character (does not use insert mode)
 R                   enter Insert mode, replacing characters rather than inserting
 J                   join line below to the current one
-cc                  change (replace) an entire line
-cw                  change (replace) to the end of word
-c$                  change (replace) to the end of line
+cc                  change (delete/replace) an entire line
+cw                  change (delete/replace) to the end of word
+ciw 		    change in a word insert mode
+diw		    delete in a word no insert mode
+c$                  change (delete/replace) to the end of line
 s                   delete character at cursor and substitute text
 S                   delete line at cursor and substitute text (same as cc)
 xp                  transpose two letters (delete and paste, technically)
@@ -119,6 +121,9 @@ X                   delete previous character
 dw                  delete the current word
 dd                  delete (cut) a line
 D                   delete from cursor to end of line
+das		    delete sentence
+dap		    delete paragraph		    
+
 :[range]d           delete [range] lines
 
 
