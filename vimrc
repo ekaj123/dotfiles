@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
-
 " Installing fzf using vim-plug
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Fuzzy finder vim
