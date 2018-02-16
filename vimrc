@@ -28,11 +28,12 @@ Plug 'tpope/vim-fugitive'
 " Initialize plugin system
 call plug#end()
 
+" VIM CONFIGURATION
 syntax on
-
-" Display line number
-set number
-
+set number " Display line number
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 " GRUVBOX
 colorscheme gruvbox
