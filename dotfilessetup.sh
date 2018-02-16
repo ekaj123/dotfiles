@@ -38,6 +38,8 @@ ln -sf $DOTFILES/vimrc $HOME/.vimrc
 # ALIASES
 ln -sf $DOTFILES/bash_aliases $HOME/.bash_aliases
 
+# PROFILE
+ln -sf $DOTFILES/profile $HOME/.profile
 
 # BASHRC
 cat ./bashrc >> $HOME/.bashrc
