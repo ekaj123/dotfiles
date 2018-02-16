@@ -4,4 +4,3 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 export VIMRC=~/.vimrc
 
-export TERM=xterm-256color
