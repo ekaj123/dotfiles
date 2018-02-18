@@ -20,10 +20,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-
-if [ -e /usr/share/terminfo/x/xterm-256color -o "$COLORTERM" == "xfce4-terminal" ]; then
-        export TERM='xterm-256color'
-else
-        export TERM='xterm-color'
-fi
