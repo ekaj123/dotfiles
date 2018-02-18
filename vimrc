@@ -40,7 +40,6 @@ colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='medium'
 
-
 " AirLine Configuration
 let g:airline_theme='minimalist'
 "let g:airline#extensions#hunks#enabled=0
@@ -59,3 +58,7 @@ let g:airline#extensions#branch#enabled=1
 
 "FZF
 set rtp+=~/.fzf
+
+"solution to fix colorscheme background mess when inside tmux session
+"disable Background Color Erase
+set t_ut=
