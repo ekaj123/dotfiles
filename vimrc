@@ -35,6 +35,11 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+if has("autocmd")
+" this is a sample
+" autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+endif
+
 " GRUVBOX
 colorscheme gruvbox
 set background=dark
