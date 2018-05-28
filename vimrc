@@ -25,12 +25,19 @@ Plug 'vim-airline/vim-airline-themes'
 " Pluggin for displaying the git branch of vim-airline
 Plug 'tpope/vim-fugitive'
 
+" Snippet engine
+Plug 'SirVer/ultisnips'
+
+" Snippets
+Plug 'honza/vim-snippets'
+
 " Initialize plugin system
 call plug#end()
 
 " VIM CONFIGURATION
 syntax on
 set number " Display line number
+set nrformats+=alpha " alphabet increment ctrl+a
 set expandtab
 set shiftwidth=2
 set softtabstop=2
