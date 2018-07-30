@@ -34,6 +34,8 @@ Plug 'honza/vim-snippets'
 " Initialize plugin system
 call plug#end()
 
+" source $HOME/dotfiles/vim/visual-at.vim
+
 " VIM CONFIGURATION
 syntax on
 set number " Display line number
@@ -42,9 +44,17 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+"autocomplete pairs
+inoremap ( ()<Esc>i
+inoremap { {}<Esc>i
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
+inoremap /* /**/<Esc>i
+
 if has("autocmd")
-" this is a sample
-" autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  " this is a sample
+  " autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd BufRead,BufNewFile *.tmpl,*.js,*.htm,*.vue inorea <buffer> cahref <c-r>=IMAP_PutTextWithMovement('<a href="<++>"><++></a>')<CR>
 endif
 
 " GRUVBOX
@@ -63,7 +73,22 @@ hi Normal guibg=NONE ctermbg=NONE
 
 "FZF
 set rtp+=~/.fzf
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 
 "solution to fix colorscheme background mess when inside tmux session
 "disable Background Color Erase
 set t_ut=
+
+" commented don't know what this is
+"imap <C-q> <C-]> 
+
+
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
