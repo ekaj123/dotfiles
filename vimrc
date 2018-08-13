@@ -43,18 +43,29 @@ set nrformats+=alpha " alphabet increment ctrl+a
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set hlsearch "highlight search
 
 "autocomplete pairs
-inoremap ( ()<Esc>i
-inoremap { {}<Esc>i
-inoremap " ""<Esc>i
-inoremap ' ''<Esc>i
-inoremap /* /**/<Esc>i
+" to do: fix copy and pasting generating pairs ctrl+shift+v
+" inoremap ( ()<Esc>i
+" inoremap { {}<Esc>i
+" inoremap /" /"/"<Esc>i
+" inoremap ' ''<Esc>i
+" inoremap /* /**/<Esc>i
 
 if has("autocmd")
   " this is a sample
   " autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd BufRead,BufNewFile *.tmpl,*.js,*.htm,*.vue inorea <buffer> cahref <c-r>=IMAP_PutTextWithMovement('<a href="<++>"><++></a>')<CR>
+
+  " figure out what is the below command does
+  " link for ref: http://vim.wikia.com/wiki/Snippets_for_JavaScript,_HTML_and_Python
+"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cfun <c-r>=IMAP_PutTextWithMovement("function <++>(<++>) {\n<++>;\nreturn <++>;\n}")<CR>
+"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cfor <c-r>=IMAP_PutTextWithMovement("for(<++>; <++>; <++>) {\n<++>;\n}")<CR>
+"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cif <c-r>=IMAP_PutTextWithMovement("if(<++>) {\n<++>;\n}")<CR>
+"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cifelse <c-r>=IMAP_PutTextWithMovement("if(<++>) {\n<++>;\n}\nelse {\n<++>;\n}")<CR> 
+  
+"  autocmd BufRead,BufNewFile *.tmpl,*.js,*.htm,*.vue inorea <buffer> cahref <c-r>=IMAP_PutTextWithMovement('<a href="<++>"><++></a>')<CR>
+"  imap <C-q> <C-]> 
 endif
 
 " GRUVBOX
@@ -77,13 +88,13 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 
+" vue-vim
+" fix syntax hightlighting in *.vue when pressing GG
+autocmd FileType vue syntax sync fromstart
+
 "solution to fix colorscheme background mess when inside tmux session
 "disable Background Color Erase
 set t_ut=
-
-" commented don't know what this is
-"imap <C-q> <C-]> 
-
 
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
