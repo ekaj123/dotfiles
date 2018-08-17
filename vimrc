@@ -21,7 +21,8 @@ Plug 'morhetz/gruvbox'
 
 " Airline Theme
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes' 
+Plug 'vim-airline/vim-airline-themes'
+
 " Pluggin for displaying the git branch of vim-airline
 Plug 'tpope/vim-fugitive'
 
@@ -47,8 +48,9 @@ set hlsearch "highlight search
 
 if has("autocmd")
   " remove white spaces when save
+  " documentation: http://vim.wikia.com/wiki/Remove_unwanted_spaces
   autocmd BufWritePre * %s/\s\+$//e
-  
+
   " this is a sample
   " autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 
@@ -57,10 +59,10 @@ if has("autocmd")
 "  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cfun <c-r>=IMAP_PutTextWithMovement("function <++>(<++>) {\n<++>;\nreturn <++>;\n}")<CR>
 "  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cfor <c-r>=IMAP_PutTextWithMovement("for(<++>; <++>; <++>) {\n<++>;\n}")<CR>
 "  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cif <c-r>=IMAP_PutTextWithMovement("if(<++>) {\n<++>;\n}")<CR>
-"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cifelse <c-r>=IMAP_PutTextWithMovement("if(<++>) {\n<++>;\n}\nelse {\n<++>;\n}")<CR> 
-  
+"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cifelse <c-r>=IMAP_PutTextWithMovement("if(<++>) {\n<++>;\n}\nelse {\n<++>;\n}")<CR>
+
 "  autocmd BufRead,BufNewFile *.tmpl,*.js,*.htm,*.vue inorea <buffer> cahref <c-r>=IMAP_PutTextWithMovement('<a href="<++>"><++></a>')<CR>
-"  imap <C-q> <C-]> 
+"  imap <C-q> <C-]>
 endif
 
 " GRUVBOX
