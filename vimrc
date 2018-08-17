@@ -45,15 +45,10 @@ set shiftwidth=2
 set softtabstop=2
 set hlsearch "highlight search
 
-"autocomplete pairs
-" to do: fix copy and pasting generating pairs ctrl+shift+v
-" inoremap ( ()<Esc>i
-" inoremap { {}<Esc>i
-" inoremap /" /"/"<Esc>i
-" inoremap ' ''<Esc>i
-" inoremap /* /**/<Esc>i
-
 if has("autocmd")
+  " remove white spaces when save
+  autocmd BufWritePre * %s/\s\+$//e
+  
   " this is a sample
   " autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 
