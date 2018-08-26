@@ -22,6 +22,7 @@ Plug 'morhetz/gruvbox'
 " Airline Theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
 " Pluggin for displaying the git branch of vim-airline
 Plug 'tpope/vim-fugitive'
