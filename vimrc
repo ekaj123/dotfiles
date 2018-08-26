@@ -39,12 +39,13 @@ call plug#end()
 
 " VIM CONFIGURATION
 syntax on
-set number " Display line number
+set number           " Display line number
 set nrformats+=alpha " alphabet increment ctrl+a
 set expandtab
 set shiftwidth=2
 set softtabstop=2
-set hlsearch "highlight search
+set hlsearch         " highlight search
+set hidden           " prevent to remove undo and don't show warning when switching buffer
 
 if has("autocmd")
   " remove white spaces when save
