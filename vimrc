@@ -75,8 +75,9 @@ let g:gruvbox_italic=1
 let g:gruvbox_italicize_comments=1
 
 " AirLine Configuration
-let g:airline_theme='minimalist'
+let g:airline_theme='dark'
 let g:airline#extensions#branch#enabled=1
+let g:tmuxline_powerline_separators=0
 
 "transparent background
 hi Normal guibg=NONE ctermbg=NONE
