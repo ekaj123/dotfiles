@@ -43,3 +43,7 @@ ln -sf $DOTFILES/profile $HOME/.profile
 
 # BASHRC
 cat ./bashrc >> $HOME/.bashrc
+
+# gitignore_global
+ln -sf $DOTFILES/gitignore_global $HOME/.gitignore_global
+git config --global core.excludesfile '~/.gitignore_global'
