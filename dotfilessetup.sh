@@ -11,8 +11,6 @@
 # openssh-server
 # silversearcher-ag https://github.com/ggreer/the_silver_searcher
 
-
-
 DOTFILES=$(pwd)
 
 # install vim-plug
