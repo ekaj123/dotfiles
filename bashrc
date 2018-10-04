@@ -131,9 +131,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# xterm-256color for airline 
+# xterm-256color for airline
 if [ -e /usr/share/terminfo/x/xterm-256color -o "$COLORTERM" == "xfce4-terminal" ]; then
         export TERM='xterm-256color'
 else
         export TERM='xterm-color'
 fi
+
+export PATH="/opt/robo3t-1.2.1-linux-x86_64-3e50a65/bin:$PATH"
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
