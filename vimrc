@@ -33,6 +33,9 @@ Plug 'SirVer/ultisnips'
 " Snippets
 Plug 'honza/vim-snippets'
 
+" YouCompleteMe
+Plug 'Valloric/YouCompleteMe'
+
 " Initialize plugin system
 call plug#end()
 
@@ -40,31 +43,26 @@ call plug#end()
 
 " VIM CONFIGURATION
 syntax on
-set number           " Display line number
-set nrformats+=alpha " alphabet increment ctrl+a
-set expandtab
-set shiftwidth=2
+set number                        " Display line number
+set nrformats+=alpha              " alphabet increment ctrl+a
 set softtabstop=2
-set hlsearch         " highlight search
-set hidden           " prevent to remove undo and don't show warning when switching buffer
+set shiftwidth=2
+set expandtab
+set hlsearch                      " highlight search
+set hidden                        " prevent to remove undo and don't show warning when switching buffer
+set backspace=indent,eol,start    " fix backspace problem
+set directory^=$HOME/.vim/tmp//   " vim swap files
+set encoding=utf-8                " The encoding displayed.
+set fileencoding=utf-8            " The encoding written to file.
 
 if has("autocmd")
   " remove white spaces when save
   " documentation: http://vim.wikia.com/wiki/Remove_unwanted_spaces
   autocmd BufWritePre * %s/\s\+$//e
 
-  " this is a sample
-  " autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-
-  " figure out what is the below command does
-  " link for ref: http://vim.wikia.com/wiki/Snippets_for_JavaScript,_HTML_and_Python
-"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cfun <c-r>=IMAP_PutTextWithMovement("function <++>(<++>) {\n<++>;\nreturn <++>;\n}")<CR>
-"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cfor <c-r>=IMAP_PutTextWithMovement("for(<++>; <++>; <++>) {\n<++>;\n}")<CR>
-"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cif <c-r>=IMAP_PutTextWithMovement("if(<++>) {\n<++>;\n}")<CR>
-"  autocmd BufRead,BufNewFile *.tmpl,*.htm,*.js inorea <buffer> cifelse <c-r>=IMAP_PutTextWithMovement("if(<++>) {\n<++>;\n}\nelse {\n<++>;\n}")<CR>
-
-"  autocmd BufRead,BufNewFile *.tmpl,*.js,*.htm,*.vue inorea <buffer> cahref <c-r>=IMAP_PutTextWithMovement('<a href="<++>"><++></a>')<CR>
-"  imap <C-q> <C-]>
+  " vue-vim
+  " fix syntax hightlighting in *.vue when pressing GG
+  autocmd FileType vue syntax sync fromstart
 endif
 
 " GRUVBOX
@@ -75,12 +73,27 @@ let g:gruvbox_italic=1
 let g:gruvbox_italicize_comments=1
 
 " AirLine Configuration
-let g:airline_theme='dark'
-let g:airline#extensions#branch#enabled=1
-let g:tmuxline_powerline_separators=0
+let g:airline_theme = 'dark'
 
-"transparent background
-hi Normal guibg=NONE ctermbg=NONE
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = '㏑'
+
+" Tmux Line
+"let g:tmuxline_powerline_separators = 0
+"let g:airline#extensions#tmuxline#enabled = 0
+
+" YouCompleteMe
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
 "FZF
 set rtp+=~/.fzf
@@ -88,14 +101,17 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 
-" vue-vim
-" fix syntax hightlighting in *.vue when pressing GG
-autocmd FileType vue syntax sync fromstart
+" fzf.vim
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>l :Lines<CR>
+
+" transparent background
+hi Normal guibg=NONE ctermbg=NONE
 
 "solution to fix colorscheme background mess when inside tmux session
 "disable Background Color Erase
 set t_ut=
-
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
