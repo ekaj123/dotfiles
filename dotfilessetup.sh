@@ -18,6 +18,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +q +q!
 
+mkdir -pv $HOME/.vim/tmp/
+
 # Need to fix: Install tmux via script below
 # git clone https://github.com/tmux/tmux.git $HOME/.tmux
 # sh $HOME/.tmux/autogen.sh
