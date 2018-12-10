@@ -64,6 +64,9 @@ if has("autocmd")
   " vue-vim
   " fix syntax hightlighting in *.vue when pressing GG
   autocmd FileType vue syntax sync fromstart
+
+  au BufWinLeave * mkview           " save fold
+  au BufWinEnter * silent loadview  " load fold
 endif
 
 " GRUVBOX
