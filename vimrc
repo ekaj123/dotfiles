@@ -44,6 +44,7 @@ call plug#end()
 " VIM CONFIGURATION
 syntax on
 set number                        " Display line number
+set relativenumber
 set nrformats+=alpha              " alphabet increment ctrl+a
 set softtabstop=2
 set shiftwidth=2
@@ -66,14 +67,14 @@ if has("autocmd")
 endif
 
 " GRUVBOX
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_italic=1
+let g:gruvbox_italic=0
 let g:gruvbox_italicize_comments=1
+let g:gruvbox_contrast_dark='hard'
+set background=dark
+colorscheme gruvbox
 
 " AirLine Configuration
-let g:airline_theme = 'dark'
+let g:airline_theme = 'molokai'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -88,8 +89,8 @@ let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = '㏑'
 
 " Tmux Line
-"let g:tmuxline_powerline_separators = 0
-"let g:airline#extensions#tmuxline#enabled = 0
+" let g:tmuxline_powerline_separators = 0
+" let g:airline#extensions#tmuxline#enabled = 0
 
 " YouCompleteMe
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
