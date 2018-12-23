@@ -9,7 +9,15 @@ swap-window -s 3 -t 1
 # Swap the current window with the top window
 swap-window -t 0
 
-# Move window index 
+# Move window index
 move-window -t 0
 
+# copy and paste
+Ctrl+b, [    # Enter copy(?) mode.
+Ctrl + space # Start highlighting text
+Alt + w      # Copies selected text into tmux clipboard. (On Mac use Esc+w.)
+Ctrl+b, ]    # Paste copied text from tmux clipboard.
+
+# Full list of set keyboard shortcuts.
+Ctrl+b,?
 
