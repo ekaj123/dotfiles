@@ -36,6 +36,9 @@ Plug 'honza/vim-snippets'
 " YouCompleteMe
 Plug 'Valloric/YouCompleteMe'
 
+" syntastic
+Plug 'vim-syntastic/syntastic'
+
 " Initialize plugin system
 call plug#end()
 
@@ -55,6 +58,14 @@ set backspace=indent,eol,start    " fix backspace problem
 set directory^=$HOME/.vim/tmp//   " vim swap files
 set encoding=utf-8                " The encoding displayed.
 set fileencoding=utf-8            " The encoding written to file.
+
+" MAPPING
+nnoremap <F3> :noh<CR>
+
+" fzf.vim
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>l :Lines<CR>
 
 if has("autocmd")
   " remove white spaces when save
@@ -105,13 +116,11 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 
-" fzf.vim
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>l :Lines<CR>
-
 " transparent background
 hi Normal guibg=NONE ctermbg=NONE
+
+" bracket highlighting
+hi MatchParen cterm=none ctermbg=black ctermfg=blue
 
 "solution to fix colorscheme background mess when inside tmux session
 "disable Background Color Erase
