@@ -87,8 +87,8 @@ if has("autocmd")
 
   " autocmd BufNewFile,BufRead *.php set filetype=php.html.javascript
 
-  au BufWinLeave * mkview           " save fold
-  au BufWinEnter * silent loadview  " load fold
+  au BufWinLeave ?* mkview 1          " save fold
+  au BufWinEnter ?* silent loadview 1 " load fold
 endif
 
 " GRUVBOX
