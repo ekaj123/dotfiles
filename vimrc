@@ -58,6 +58,7 @@ set backspace=indent,eol,start    " fix backspace problem
 set directory^=$HOME/.vim/tmp//   " vim swap files
 set encoding=utf-8                " The encoding displayed.
 set fileencoding=utf-8            " The encoding written to file.
+set ff=unix
 
 " MAPPING
 nnoremap <F3> :noh<CR>
@@ -66,15 +67,25 @@ nnoremap <F3> :noh<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>l :Lines<CR>
+nnoremap <silent> <Leader>s :w<CR>
+
+function! <SID>StripTrailingWhitespace()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfunction
 
 if has("autocmd")
   " remove white spaces when save
   " documentation: http://vim.wikia.com/wiki/Remove_unwanted_spaces
-  autocmd BufWritePre * %s/\s\+$//e
+  autocmd BufWritePre * :call <SID>StripTrailingWhitespace()
 
   " vue-vim
   " fix syntax hightlighting in *.vue when pressing GG
   autocmd FileType vue syntax sync fromstart
+
+  " autocmd BufNewFile,BufRead *.php set filetype=php.html.javascript
 
   au BufWinLeave * mkview           " save fold
   au BufWinEnter * silent loadview  " load fold
